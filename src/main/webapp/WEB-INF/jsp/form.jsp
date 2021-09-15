@@ -1,17 +1,29 @@
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-         pageEncoding="ISO-8859-1"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<c:set var="contextPath" value="${pageContext.request.contextPath}" />
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">--%>
+<%--<%@ page language="java" contentType="text/html; charset=ISO-8859-1"--%>
+<%--         pageEncoding="ISO-8859-1"%>--%>
+<%--<c:set var="contextPath" value="${pageContext.request.contextPath}" />--%>
 
-<form>
+<form:form modelAttribute="form" action="/form" method="post">
+
+    <form:hidden path="formId"></form:hidden>
+
+<%--    <div>--%>
+<%--        <label>--%>
+<%--            Entry--%>
+<%--        </label>--%>
+<%--        <form:input path="formText" />--%>
+<%--    </div>--%>
+
+<%--    <form:button>Add</form:button>--%>
     <div class="form-group row">
         <label class="col-1" for="TextInput">Text: </label>
-        <input type="text" class="form-control col-5" id="TextInput" aria-describedby="text" placeholder="Text">
+        <form:input path="formText" type="text" class="form-control col-5" id="TextInput" aria-describedby="text" placeholder="Text"/>
     </div>
     <div class="form-group row">
         <label class="col-1" for="exampleInputPassword1">Password:</label>
-        <input type="password" class="form-control col-5" id="exampleInputPassword1" placeholder="Password">
+        <form:input path="formPassword" type="password" class="form-control col-5" id="exampleInputPassword1" placeholder="Password"/>
     </div>
     <div class="form-check col-6">
         <div class="row">
@@ -72,5 +84,5 @@
             <option value="3">Three</option>
         </select>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+    <form:button type="submit" class="btn btn-primary">Submit</form:button>
+</form:form>
