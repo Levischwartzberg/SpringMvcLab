@@ -21,7 +21,7 @@ public class FormController {
     @RequestMapping(value = "/form", method = RequestMethod.GET)
     public String formGet(Model model) {
 //        model.addAttribute("unBoundTextBox", "Initial Value");
-        model.addAttribute("form", new Form() );
+        model.addAttribute("formObject", new Form() );
         return "form";
     }
 
