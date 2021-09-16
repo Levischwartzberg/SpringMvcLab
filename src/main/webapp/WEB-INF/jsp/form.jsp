@@ -5,7 +5,7 @@
          pageEncoding="ISO-8859-1"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 
-<form:form modelAttribute="form" action="/form" method="post">
+<form:form modelAttribute="form" action="/form" method="post" cssStyle="padding: 50px">
 
     <form:hidden path="formId"></form:hidden>
 
@@ -13,13 +13,13 @@
         <label class="col-1" for="TextInput">Text: </label>
         <form:input path="formText" type="text" class="form-control col-5" id="TextInput" aria-describedby="text" placeholder="Text"/>
     </div>
-    <div class="form-group row">
+    <div class="form-group row" style="padding-bottom: 50px">
         <label class="col-1" for="exampleInputPassword1">Password:</label>
         <form:input path="formPassword" type="password" class="form-control col-5" id="exampleInputPassword1" placeholder="Password"/>
     </div>
     <div class="form-check col-6">
-        <div class="row">
-            <form:checkboxes path="checkBoxChoices" items="${checkBoxOptions}"/>
+        <div class="row" style="padding-bottom: 50px; padding-left: 50px">
+            <form:checkboxes path="checkBoxChoices" items="${checkBoxOptions}" cssStyle="margin: 15px"/>
         </div>
     </div>
     <div class="form-group row">
@@ -28,7 +28,7 @@
     </div>
     <div class="form-group row">
         <label class="col-1" for="radio"> Radios: </label>
-        <form:radiobuttons path="radioOption" items="${radioOptions}" id="radio"/>
+        <form:radiobuttons path="radioOption" items="${radioOptions}" id="radio" cssStyle="margin: 15px"/>
     </div>
     <div class="form-group row">
         <label class="col-1" for="inputState">Select</label>
@@ -45,5 +45,6 @@
             <form:options items="${multiSelectOptions}"/>
         </form:select>
     </div>
+    <form:button type="button" class="btn btn-light">Cancel</form:button>
     <form:button type="submit" class="btn btn-primary">Submit</form:button>
 </form:form>
