@@ -5,12 +5,11 @@ public class Form {
     private Integer formId;
     private String formText;
     private String formPassword;
-    private Boolean checkBox1;
-    private Boolean checkBox2;
-    private Boolean checkBox3;
+    private String [] checkBoxChoices;
     private String formTextArea;
     private String radioOption;
     private String selectOption;
+    private String multiSelectOption;
 
     public Form() {}
 
@@ -38,28 +37,12 @@ public class Form {
         this.formPassword = formPassword;
     }
 
-    public Boolean getCheckBox1() {
-        return checkBox1;
+    public String[] getCheckBoxChoices() {
+        return checkBoxChoices;
     }
 
-    public void setCheckBox1(Boolean checkBox1) {
-        this.checkBox1 = checkBox1;
-    }
-
-    public Boolean getCheckBox2() {
-        return checkBox2;
-    }
-
-    public void setCheckBox2(Boolean checkBox2) {
-        this.checkBox2 = checkBox2;
-    }
-
-    public Boolean getCheckBox3() {
-        return checkBox3;
-    }
-
-    public void setCheckBox3(Boolean checkBox3) {
-        this.checkBox3 = checkBox3;
+    public void setCheckBoxChoices(String[] checkBoxChoices) {
+        this.checkBoxChoices = checkBoxChoices;
     }
 
     public String getFormTextArea() {
@@ -94,7 +77,21 @@ public class Form {
         this.multiSelectOption = multiSelectOption;
     }
 
-    private String multiSelectOption;
+    public String printCheckBoxChoices() {
+        String checkChoices = "";
+//        System.out.println(checkBoxChoices.length);
+        for(String check : this.checkBoxChoices) {
+            checkChoices += " " + check;
+        }
+        return checkChoices;
+    }
 
+    public String toString() {
+//        System.out.println(printCheckBoxChoices());
+        return "Text: " + this.formText + "   Password: " + this.formPassword + "   Check Box Choices: " + printCheckBoxChoices()
+                + "   Text Area: " + this.formTextArea + "   Radio Choice: " + this.radioOption + "   "
+                + "Select: " + this.selectOption + "   MultiSelect: " + this.multiSelectOption;
+    }
 
+//    + " Check Box Choices: " + this.printCheckBoxChoices()
 }
