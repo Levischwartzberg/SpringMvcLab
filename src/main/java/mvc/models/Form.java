@@ -1,8 +1,17 @@
 package mvc.models;
 
+import javax.persistence.*;
+
+@Entity
 public class Form {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer formId;
+
+    @Version
+    private Integer version;
+
     private String formText;
     private String formPassword;
     private String [] checkBoxChoices;

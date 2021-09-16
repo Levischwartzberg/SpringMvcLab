@@ -1,6 +1,8 @@
 package mvc.controllers;
 
 import mvc.models.Form;
+import mvc.repositories.FormRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -13,6 +15,9 @@ import java.util.List;
 @Controller
 public class FormController {
 
+    @Autowired
+    private FormRepository formRepository;
+
     @RequestMapping(value = "/form", method = RequestMethod.GET)
     public String formGet(Model model) {
 //        model.addAttribute("unBoundTextBox", "Initial Value");
@@ -23,6 +28,7 @@ public class FormController {
     @RequestMapping(value = "/form", method = RequestMethod.POST)
     public String  formPost(Model model,
                             @ModelAttribute("form") Form form) {
+        formRepository.save(form);
         System.out.println(form.toString());
         return "form";
     }
